@@ -20,12 +20,12 @@ public class AnnotationStepTest {
     }
 
     @Step("ищем репозиторий {repository}")
-    public void searchForReposytory(String repository){
+    public void searchForRepository(String repository){
         $("[data-test-selector='nav-search-input']").setValue(repository).pressEnter();
     }
 
     @Step("открываем найденный репозиторий {repository}")
-    public void openRepositoryPage(String reposytory) {
+    public void openRepositoryPage(String repository) {
         $$("ul.repo-list li").first().$("a").click();
     }
 
