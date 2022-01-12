@@ -5,11 +5,10 @@ import com.codeborne.selenide.WebDriverRunner;
 import io.qameta.allure.Allure;
 import org.junit.jupiter.api.Test;
 
-import static com.codeborne.selenide.Selectors.withText;
 import static com.codeborne.selenide.Selenide.*;
 import static io.qameta.allure.Allure.step;
 
-public class LambdaTest {
+public class StepTest {
     private static final String REPOSITORY = "Bigwatch86/Homework_06";
 
     @Test
@@ -31,5 +30,15 @@ public class LambdaTest {
             $("#issues-tab").should(Condition.visible);
         });
 
+    }
+
+
+    @Test
+    public void annotatedStepsTest() {
+    AnnotationStepTest steps = new AnnotationStepTest();
+    steps.openMainPage();
+    steps.searchForReposytory(REPOSITORY);
+    steps.openRepositoryPage(REPOSITORY);
+    steps.searchIssuesTab();
     }
 }
